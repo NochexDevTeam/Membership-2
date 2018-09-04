@@ -125,19 +125,7 @@ class MS_Gateway_Nochex_View_Button extends MS_View {
 		
 		$pay_cycle = $membership->pay_cycle_period;
 		$total_payments = $membership->pay_cycle_repetitions;
-		
-		/*
-			$membership->period 
-			-------
-			period_unit = 1
-			period_type = days			
-			------
-			period_unit = 1
-			period_type = months			
-			-----
-			10
-		*/
-		
+				
 		$description = "Membership: " . $membership->name . " , Payments every " . $pay_cycle["period_unit"] . "  " . $pay_cycle["period_type"] . ", Total Payments (" . $total_payments . ")";
 		
 		
@@ -287,22 +275,6 @@ class MS_Gateway_Nochex_View_Button extends MS_View {
 
 		$this->data['action_url'] = 'https://secure.nochex.com/default.aspx';
 		
-		/* Add Child Name */
-		$fields['addItional'] = array(
-
-					'id' 	=> 'optional_1',
-					
-					'name' 	=> 'optional_1',
-
-					'type' 	=> MS_Helper_Html::INPUT_TYPE_TEXT,
-
-					'placeholder' => "Childs Name", 
-					
-					'maxlength' => 25, 
-					
-		);
-		/* ---- */
-				
 		$fields['submit'] = array(
 
 			'id' 	=> 'submit',
