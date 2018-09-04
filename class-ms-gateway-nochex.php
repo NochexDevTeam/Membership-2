@@ -107,9 +107,7 @@ class MS_Gateway_Nochex extends MS_Gateway {
 		ini_set("SMTP","mail.nochex.com" ); 
 		$header = "From: apc@nochex.com";
 
-		// Set parameters for the email
-		$to = 'james.lugton@nochex.com';
-		$url = "https://secure.nochex.com/callback/callback.aspx";
+		$url = "https://www.nochex.com/apcnet/apc.aspx";
 
 		// Curl code to post variables back
 		$ch = curl_init(); // Initialise the curl tranfer
@@ -132,11 +130,11 @@ class MS_Gateway_Nochex extends MS_Gateway {
 		$debug .= "\r\nRESPONSE:\r\n$output";
 		 
 		//If statement
-		if (!strstr($output, "AUTHORISED")) {  // searches response to see if AUTHORISED is present if it isn’t a failure message is displayed
-			$msg = "Callback was not AUTHORISED for " . $_POST['optional_1'];  // displays debug message
+		if (!strstr($output, "AUTHORISED")) {  // searches response to see if AUTHORISED is present if it isnâ€™t a failure message is displayed
+			$msg = "Callback was not AUTHORISED";  // displays debug message
 		} 
 		else { 
-			$msg = "Callback was AUTHORISED for " . $_POST['optional_1']; // if AUTHORISED was found in the response then it was successful
+			$msg = "Callback was AUTHORISED"; // if AUTHORISED was found in the response then it was successful
 			// whatever else you want to do 
 		}
 
@@ -157,7 +155,7 @@ class MS_Gateway_Nochex extends MS_Gateway {
 				
 			$success = true;
 
-			$notes = 'Payment successful for ' . $_POST['optional_1'];
+			$notes = 'Payment successful';
 
 			$status = MS_Model_Invoice::STATUS_PAID;	
 	
